@@ -57,7 +57,7 @@ class UserRegister(Resource):
 
         user_exists = User.find_by_username(data['username'])
         if user_exists:
-            return {'message': 'User with such username already exists.'}
+            return {'message': 'UserModel with such username already exists.'}
 
         connection = sqlite3.connect('data.db')
         cursor = connection.cursor()
@@ -67,4 +67,4 @@ class UserRegister(Resource):
         connection.commit()
         connection.close()
 
-        return {'message': 'User created successfully'}, 201
+        return {'message': 'UserModel created successfully'}, 201
