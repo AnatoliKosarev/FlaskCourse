@@ -28,7 +28,7 @@ class Store(Resource):
             store.save_to_db()
         except:
             return {'message': 'An error occurred when saving the store.'}, 500
-        return {'message': f'Store with name \'{name}\' saved successfully.'}, 201
+        return store.json(), 201
 
     def delete(self, name):
         store = self._store_exists(name)
